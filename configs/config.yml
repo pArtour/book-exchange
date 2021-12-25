@@ -1,0 +1,9 @@
+db:
+    database_url: "host=localhost dbname=restapi_dev sslmode=disable"
+    username: "username"
+    password: "password"
+    port: "5432"
+server:
+    bind_addr: "8080"
+logger:
+    level: "debug"
