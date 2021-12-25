@@ -30,11 +30,15 @@ func (h *Handler) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
 }
 
 func (h *Handler) ConfigRouter() {
-	h.router.HandleFunc("/sign-up", h.HandlerUserCreate()).Methods("GET")
-	//h.router.HandleFunc("/sign-in").Methods("POST")
+	h.router.Use(h.logRequest)
+	//h.router.Use(handlers.CORS(handlers.AllowedOrigins([]string{"*"})))
+	h.router.HandleFunc("/sign-up", h.HandleUserCreate()).Methods("POST")
+	h.router.HandleFunc("/sign-in", h.HandleUserSignIn()).Methods("POST")
+	h.router.Use(h.authenticate)
+	h.router.HandleFunc("/books", h.HandleBooksGet()).Methods("GET")
 }
 
-func (h *Handler) error(w http.ResponseWriter, r *http.Request, statusCode int, err error) {
+func (h *Handler) error(w http.ResponseWriter, statusCode int, err error) {
 	h.respond(w, statusCode, map[string]string{"error": err.Error()})
 }
 

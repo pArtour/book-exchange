@@ -27,3 +27,15 @@ func (s *Server) Shutdown(ctx *context.Context) error {
 func NewServer(config *configs.Config) *Server {
 	return &Server{config: config}
 }
+
+//func newDB(databaseUrl string) (*sql.DB, error) {
+//	db, err := sql.Open("postgres", databaseUrl)
+//	if err != nil {
+//		return nil, err
+//	}
+//
+//	if err := db.Ping(); err != nil {
+//		return nil, err
+//	}
+//	return db, nil
+//}

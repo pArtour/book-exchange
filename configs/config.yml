@@ -1,5 +1,6 @@
 db:
-    database_url: "host=localhost dbname=restapi_dev sslmode=disable"
+    driver_name: "postgres"
+    database_url: "host=localhost dbname=book_exchange_db_dev sslmode=disable"
     username: "username"
     password: "password"
     port: "5432"

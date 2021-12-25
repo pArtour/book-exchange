@@ -13,6 +13,7 @@ type Config struct {
 }
 
 type DBConfig struct {
+	DriverName  string `yaml:"driver_name"`
 	DatabaseURL string `yaml:"database_url"`
 	Username    string `yaml:"username"`
 	Password    string `yaml:"password"`
